@@ -26,29 +26,21 @@ t=v_n*T;
 
 x_n = sin(Omega_0*t); 
 //Letra B
+//tá no final do código todos os sounds
 
-subplot(331)
+////Letra C 
+
+x_w = fftshift(fft(x_n ,-1)*2*%pi*T);
+w = linspace(-1, 1-T, 1/T)/(2*T);
+
+
+subplot(4,4,1)
 title('')
-plot2d3(t(1:51), x_n(1:51) ) 
+plot2d3(w, abs(x_w)) 
 
-subplot(332)
+subplot(4,4,2)
 title('')
-plot2d(t(1:51), x_n(1:51) ) 
-
-//Letra C falta terminar
-
-//x_w = fftshift(fft(x_n ,-1)*2*%pi*T);
-//x_w2 = fft(x_t,-1);
-//w = linspace(-1, 1-T, 1/T)/(2*T);
-
-
-//subplot(333)
-//title('')
-//plot2d(w, abs(x_w)) 
-
-//subplot(224)
-//title('')
-//plot2d(w, x_w2 ) 
+plot2d3(w, x_w) 
 
 //Letra D
 //Frequencia de 1500
@@ -56,18 +48,33 @@ plot2d(t(1:51), x_n(1:51) )
 omega3 = 2*%pi*(1500);
 x_h = sin(omega3*t);
 
-subplot(333)
+x_wh = fftshift(fft(x_h ,-1)*2*%pi*T);
+w = linspace(-1, 1-T, 1/T)/(2*T);
+
+subplot(4,4,3)
 title('')
 plot2d3(t(1:51),x_h(1:51) )
+
+subplot(4,4,4)
+title('')
+plot2d3(w,atan(imag(x_wh),real(x_wh)))
 
 //frequencia 2000
 
 omega4 = 2*%pi*(2000);
 x_i = sin(omega4*t);
 
-subplot(334)
+x_wi = fftshift(fft(x_i ,-1)*2*%pi*T);
+w = linspace(-1, 1-T, 1/T)/(2*T);
+//
+subplot(4,4,5)
 title('')
 plot2d3(t(1:51),x_i(1:51) )
+
+subplot(4,4,6)
+title('')
+plot2d3(w, atan(imag(x_wi),real(x_wi)))
+
 
 
 //wavwrite(x_n,'C:\Pasta Pessoal\Periodo 20.2\PDS\My projects\Project 1\sounds\som1.wav'); 
@@ -82,50 +89,89 @@ plot2d3(t(1:51),x_i(1:51) )
 omega5 = 2*%pi*(3500);
 x_j = sin(omega5*t);
 
-subplot(335)
+x_wj = fftshift(fft(x_j ,-1)*2*%pi*T);
+w = linspace(-1, 1-T, 1/T)/(2*T);
+////
+subplot(4,4,7)
 title('')
 plot2d3(t(1:51),x_j(1:51) )
+//
+subplot(4,4,8)
+title('')
+plot2d3(w, atan(imag(x_wj),real(x_wj))) 
 
 //400
-omega6 = 2*%pi*(400);
+omega6 = 2*%pi*(4000);
 x_k = sin(omega6*t);
 
-subplot(336)
+x_wk = fftshift(fft(x_k ,-1)*2*%pi*T);
+w = linspace(-1, 1-T, 1/T)/(2*T);
+//
+subplot(4,4,9)
 title('')
 plot2d3(t(1:51),x_k(1:51) )
+
+subplot(4,4,10)
+title('')
+plot2d3(w, atan(imag(x_wk),real(x_wk))) 
 
 //4500
 omega7 = 2*%pi*(4500);
 x_l = sin(omega7*t);
 
-subplot(337)
+x_wl = fftshift(fft(x_l ,-1)*2*%pi*T);
+w = linspace(-1, 1-T, 1/T)/(2*T);
+
+subplot(4,4,11)
 title('')
 plot2d3(t(1:51),x_l(1:51) )
+
+subplot(4,4,12)
+title('')
+plot2d3(w, atan(imag(x_wl),real(x_wl))) 
 
 //5000
 omega8 = 2*%pi*(5000);
 x_m = sin(omega8*t);
 
-subplot(338)
+x_wm = fftshift(fft(x_m ,-1)*2*%pi*T);
+w = linspace(-1, 1-T, 1/T)/(2*T);
+
+
+subplot(4,4,13)
 title('')
 plot2d3(t(1:51),x_m(1:51) )
+
+subplot(4,4,14)
+title('')
+plot2d3(w, atan(imag(x_wm),real(x_wm))) 
 
 //5500
 omega9 = 2*%pi*(5500);
 x_p = sin(omega9*t);
 
-subplot(339)
+x_wp = fftshift(fft(x_p ,-1)*2*%pi*T);
+w = linspace(-1, 1-T, 1/T)/(2*T);
+
+
+subplot(4,4,15)
 title('')
 plot2d3(t(1:51),x_p(1:51) )
 
-//sound(x_n, 1/T);//1000
-//sound(x_h, 1/T);//1500
-//sound(x_i, 1/T);//2000
-//sound(x_j, 1/T);//3500
-//sound(x_k, 1/T);//400
-//sound(x_l, 1/T);//4500
-//sound(x_m, 1/T);//5000
-//sound(x_p, 1/T);//5500
+subplot(4,4,16)
+title('')
+plot2d3(w, atan(imag(x_wp),real(x_wp))) 
+
+sound(x_n, 1/T);//1000
+sound(x_h, 1/T);//1500
+sound(x_i, 1/T);//2000
+
+
+sound(x_j, 1/T);//3500
+sound(x_k, 1/T);//400
+sound(x_l, 1/T);//4500
+sound(x_m, 1/T);//5000
+sound(x_p, 1/T);//5500
 
 
 
